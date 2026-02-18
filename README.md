@@ -92,35 +92,3 @@ I started with the example starter code provided on the [assignment page](https:
 The first version was a simple three room maze with no objectives, just movement. This let me focus purely on getting the voice loop working reliably before adding complexity. From there I expanded the maze to ten rooms and introduced the key collection mechanic, where all three keys must be found before the exit unlocks.
 
 A significant design challenge was deciding how much information to give the player at each step. Early versions just described the room and said nothing else, which I realized could be confusing for some players. After rewriting the game loop several times, I decided always announcing exits at the end of each room description, announcing treasure on entry, and giving spoken feedback for every action including errors was the best way to go. The goal was that a player with no prior knowledge of the game could figure out how to play entirely from what they hear.
-
----
-
-## Written Questions
-
-**What did you do, how did you did it, and what challenges did you encounter?**
-
-I built a voice-only text adventure game in Python. The player navigates a ten-room maze, collects three keys, and unlocks an exit, all using spoken commands. The main challenge was a pyttsx3 bug where the engine silently failed after the first microphone capture, resulting in audio being unheard. I fixed this by reinitializing the engine inside each `speak()` call.
-
-**Did you work with a buddy?**
-
-No. This submission represents my own original work.
-
-**Portions not originally written by me:**
-
-The base speech recognition template was adapted from Dr. Alvin Grissom's 2020 HCI course and Dr. Bill Mongan's 2024 HCI course, which can be found on the [assignment page](https://hwilt.github.io/Ursinus-CS474-Spring2026/Assignments/Programming/VoicePrompt). All voice input, audio output, and game logic were written by me.
-
-**Approximately how many hours did this take?**
-
-The assignment took approximately 5 hours.
-
-**Overall impression:**
-
-I thought it was really fun to create and design! However, even in the final result the speech recognition is poor, requiring several iterations of the same command.
-
-**Self-assessed grade:**
-
-- **Human-Centric Design (20%):** I would give myself a 100%. The game consistently announces exits and available actions, gives clear feedback for blocked paths, items on the floor, and unknown commands or errors.
-- **Design Report (20%):** I would give myself a 100%, as I address everything in the README.
-- **Algorithm Implementation (30%):** I would give myself a 100%. The maze, key collection, locked door logic, and win condition all work correctly. Special cases like keys already taken or blocked exits are handled.
-- **Code Quality (20%):** I would give myself a 100%. Helper functions are used to avoid repetition, and a clean style was used throughout the code.
-- **Writeup and Submission (10%):** I would give myself a 100%. README answers all required questions.
